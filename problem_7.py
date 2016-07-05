@@ -9,7 +9,7 @@ def solve():
     num_primes = 0
     while num_primes <= 10001:
         i += 1
-        if tester.test(i):
+        if tester.is_prime(i):
             num_primes += 1
     print 'hit rate: %.4f' % tester.hit_rate()
     print 'miss rate: %.4f' % tester.miss_rate()
