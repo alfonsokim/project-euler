@@ -1,20 +1,26 @@
 
+import sys
+
 # ============================================================
 def solve():
     """
     """
-    grid_size = (6, 6)
-    # grid_size = (20, 20)
-    def routes(x, y, total_routes):
-        print x, y
+    grid_size = (20, 20)
+    def routes(x, y):
+        """ The most inefficient way to solve this problem;
+        """
         if x == grid_size[0] and y == grid_size[1]:
-            return total_routes + 1
+            solve.total_routes += 1
+            if solve.total_routes % 1000000 == 0:
+                sys.stdout.write('\r%i' % solve.total_routes)
         if x < grid_size[0]:
-            return routes(x+1, y, total_routes)
+            routes(x+1, y)
         if y < grid_size[1]:
-            return routes(x, y+1, total_routes)
-
-    return routes(1, 1, 0)
+            routes(x, y+1)
+    
+    solve.total_routes = 0
+    routes(0, 0)
+    return solve.total_routes
 
 # ============================================================
 if __name__ == '__main__':
