@@ -69,14 +69,14 @@ def proper_divisors(number, stop=None):
 
 
 # ============================================================
-def time_it(f):
+def time_it(da_func):
     """
     """
-    def wrap(*args):
+    def wrap(*args, **kwargs):
         time1 = time.time()
-        ret = f(*args)
+        ret_value = da_func(*args, **kwargs)
         time2 = time.time()
-        print '%s function took %0.3f ms' % (f.func_name, (time2-time1)*1000.0)
-        return ret
+        print '[%s]: %0.4f ms' % (da_func.func_name, (time2 - time1) * 1000.0)
+        return ret_value
     return wrap
 
