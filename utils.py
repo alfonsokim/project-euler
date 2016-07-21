@@ -1,3 +1,4 @@
+import time
 
 # ============================================================
 class DynamicPrimalTester():
@@ -50,4 +51,32 @@ def int_generator(start=0, stop=None, step=1):
     while i < stop:
         yield i
         i += step
+
+
+# ============================================================
+def proper_divisors(number, stop=None):
+    """
+    """
+    # i, n = 1, (number // 2) + 1
+    yield 1
+    i, n = 2, int(number ** 0.5) + 1
+    while i < stop or i < n:
+        if number % i == 0:
+            yield i
+            if i != number // i: 
+                yield number // i
+        i += 1
+
+
+# ============================================================
+def time_it(f):
+    """
+    """
+    def wrap(*args):
+        time1 = time.time()
+        ret = f(*args)
+        time2 = time.time()
+        print '%s function took %0.3f ms' % (f.func_name, (time2-time1)*1000.0)
+        return ret
+    return wrap
 
