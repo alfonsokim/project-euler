@@ -18,6 +18,7 @@ class DynamicPrimalTester():
     def is_prime(self, x):
         """ Returns True if x is prime, False otherwhise
         """
+        if x < 0: return False
         self.num_tests += 1
         if x in self.memory:
             self.hits += 1
@@ -52,6 +53,9 @@ def int_generator(start=0, stop=None, step=1):
         yield i
         i += step
 
+
+# ============================================================
+PrimalTester = DynamicPrimalTester
 
 # ============================================================
 def proper_divisors(number, stop=None):
