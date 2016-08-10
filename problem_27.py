@@ -1,5 +1,4 @@
 from utils import PrimalTester
-from collections import defaultdict
 
 tester = PrimalTester()
 
