@@ -12,6 +12,7 @@ def get_corners(level):
     corners = [upper_right - (decrement * i) for i in range(4)]
     return corners
 
+
 # =============================================================================
 def solve():
     """ Se suma 1 por que el rango empieza en el nivel 3, el valor del
@@ -19,6 +20,7 @@ def solve():
         Se evalua hasta 1002 para que se vea el nivel 1001
     """
     return 1 + sum(sum(get_corners(level)) for level in range(3, 1002, 2))
+
 
 # =============================================================================
 if __name__ == '__main__':
