@@ -9,8 +9,17 @@ class DynamicPrimalTester():
             Uses Dynamic Programming to keep track of tested
             numbers
         """
-        self.memory = {0: False, 1: False, 2: True, 3: True, 4: False, 
-                       5: True, 6: False, 7: True, 8: False}
+        self.memory = {
+            0: False, 
+            1: False, 
+            2: True, 
+            3: True, 
+            4: False, 
+            5: True, 
+            6: False, 
+            7: True, 
+            8: False
+        }
         self.num_tests = 0
         self.hits = 0
 
@@ -20,12 +29,16 @@ class DynamicPrimalTester():
         """
         if x < 0: return False
         self.num_tests += 1
+        if x % 2 == 0:
+            self.memory[x] = False
+            return False
         if x in self.memory:
-            self.hits += 1
+            # self.hits += 1
             return self.memory[x]
         xsqrt = int(x ** 0.5)
         for i in range(3, xsqrt + 1, 2):
-            if x % 2 == 0 or x % i == 0:
+            if x % i == 0:
+                # print '%i es multiplo de %i' % (x, i)
                 self.memory[x] = False
                 return False
         self.memory[x] = True
