@@ -93,7 +93,7 @@ def time_it(da_func):
         time1 = time.time()
         ret_value = da_func(*args, **kwargs)
         time2 = time.time()
-        print '[%s]: %0.4f ms' % (da_func.func_name, (time2 - time1) * 1000.0)
+        print('[%s]: %0.4f ms' % (da_func.func_name, (time2 - time1) * 1000.0))
         return ret_value
     return wrap
 
